@@ -162,18 +162,6 @@ Extra variable                                  Description                     
 ``extra_consul_cluster``                        Consul cluster configuration                    ``10.100.0.0/24``
 ==============================================  =============================================   ================================================================================================================================================================================================================
 
-
-
-.. code:: yaml
-
-    - hosts: localhost
-      gather_facts: no
-      roles:
-        - role: poc-azure
-
-
-extra_consul_cluster:
-
 .. code:: yaml
 
     extra_consul_cluster:
