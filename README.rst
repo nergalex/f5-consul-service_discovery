@@ -165,6 +165,7 @@ Extra variable                                  Description                     
 extra_consul_cluster:
 
 .. code:: yaml
+
 extra_consul_cluster:
   members:
     <logical_name>:
@@ -179,6 +180,7 @@ extra_consul_cluster:
 Example:
 
 .. code:: yaml
+
 extra_consul_cluster:
   members:
     server-1:
@@ -237,14 +239,6 @@ Extra variable                                  Description                     
 ==============================================  =============================================   ================================================================================================================================================================================================================
 
 ``extra_app`` structure, also stored as is in Consul:
-
-.. code:: yaml
-
-    - hosts: localhost
-      gather_facts: no
-      roles:
-        - role: poc-azure
-
 
 .. code:: yaml
 
