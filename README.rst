@@ -12,7 +12,7 @@ Use Case
 
 Benefit
 ###############
-- **Multi-Cloud** -- use an unique solution On Premise and in Cloud providers
+- **Multi-Cloud** -- useo one solution On Premise and in Cloud providers
 - `Circuit Breaker pattern <https://www.nginx.com/blog/microservices-reference-architecture-nginx-circuit-breaker-pattern/>`_ -- monitor your application services and the traffic flowing among them in order to prevent failures
 - **Automation** -- monitor setup belongs to app landing zone
 
