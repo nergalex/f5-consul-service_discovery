@@ -159,7 +159,7 @@ Extra variable                                  Description                     
 ``extra_vm_size``                               VM type                                         ``Standard_DS1_v2``
 ``infra_admin_username``                        Admin username                                  ``plop``
 ``extra_subnet_mgt_dataplane``                  Consul subnet                                   ``10.100.0.0/24``
-``extra_consul_cluster``                        Consul cluster configuration                    ``10.100.0.0/24``
+``extra_consul_cluster``                        Consul cluster configuration                    see below
 ==============================================  =============================================   ================================================================================================================================================================================================================
 
 .. code:: yaml
