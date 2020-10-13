@@ -176,39 +176,39 @@ extra_consul_cluster:
 
 .. code:: yaml
 
-extra_consul_cluster:
-  members:
-    <logical_name>:
-      az: <AZ list>
-      ip_mgt: <management IP>
-      master: [true | false]
-      role: [client | server]
-      vm_name: <VM_name>
-  version: <Consul version to download>
-  vm_master_ip_mgt: <management IP of the master Consul VM>
+    extra_consul_cluster:
+      members:
+        <logical_name>:
+          az: <AZ list>
+          ip_mgt: <management IP>
+          master: [true | false]
+          role: [client | server]
+          vm_name: <VM_name>
+      version: <Consul version to download>
+      vm_master_ip_mgt: <management IP of the master Consul VM>
 
 Example:
 
 .. code:: yaml
 
-extra_consul_cluster:
-  members:
-    server-1:
-      az:
-        - 1
-      ip_mgt: 10.100.0.60
-      master: true
-      role: server
-      vm_name: consul-server-1
-    server-2:
-      az:
-        - 2
-      ip_mgt: 10.100.0.61
-      master: false
-      role: server
-      vm_name: consul-server-2
-  version: 1.8.4
-  vm_master_ip_mgt: 10.100.0.60
+    extra_consul_cluster:
+      members:
+        server-1:
+          az:
+            - 1
+          ip_mgt: 10.100.0.60
+          master: true
+          role: server
+          vm_name: consul-server-1
+        server-2:
+          az:
+            - 2
+          ip_mgt: 10.100.0.61
+          master: false
+          role: server
+          vm_name: consul-server-2
+      version: 1.8.4
+      vm_master_ip_mgt: 10.100.0.60
 
 A) NGINX App Protect + Consul
 ==================================================
