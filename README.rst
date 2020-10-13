@@ -240,6 +240,14 @@ Extra variable                                  Description                     
 
 .. code:: yaml
 
+    - hosts: localhost
+      gather_facts: no
+      roles:
+        - role: poc-azure
+
+
+.. code:: yaml
+
     extra_app:
       components:
         - name: north
@@ -259,4 +267,10 @@ B) BIG-IP + Consul
 ==================================================
 
 :kbd:`ToDo`
+
+
+
+
+
+
 
