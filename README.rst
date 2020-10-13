@@ -38,12 +38,16 @@ Demo
 ###############
 NGINX App Protect + Consul
 **************************
+:kbd:`ToDo`
+
 .. raw:: html
 
     <a href="http://www.youtube.com/watch?v=wqIGWfW5Dmo"><img src="http://img.youtube.com/vi/wqIGWfW5Dmo/0.jpg" width="600" height="400" title="Automate an Application deployment" alt="Automate an Application deployment"></a>
 
 BIG-IP + Consul
 *********************
+:kbd:`ToDo`
+
 .. raw:: html
 
     <a href="http://www.youtube.com/watch?v=wqIGWfW5Dmo"><img src="http://img.youtube.com/vi/wqIGWfW5Dmo/0.jpg" width="600" height="400" title="Automate an Application deployment" alt="Automate an Application deployment"></a>
