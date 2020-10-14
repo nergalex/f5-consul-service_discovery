@@ -205,9 +205,9 @@ Follow the guide `Deploy a replica of Edge Security<https://github.com/nergalex/
 Reposiroty for Consul Client
 ############################
 During bootstrapping, each VM of the VMSS download a `repository<https://github.com/nergalex/consul-bootstrap>`_ (git clone) and execute scripts in order to:
-1. install Consul client
-2. onboard Consul client and attached it to Consul cluster
-3. configure Application Services and associated monitoring
+- install Consul client
+- onboard Consul client and attached it to Consul cluster
+- configure Application Services and associated monitoring
 
 Use Case
 ==================================================
