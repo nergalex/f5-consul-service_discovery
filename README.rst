@@ -198,45 +198,30 @@ Example:
       version: 1.8.4
       vm_master_ip_mgt: 10.100.0.60
 
-A) NGINX App Protect + Consul
+Edge Security
+###################
+Follow the guide `Deploy a replica of Edge Security<https://github.com/nergalex/f5-autoscale-azure#deploy-a-replica-of-edge-security>`_
+
+Reposiroty for Consul Client
+############################
+During bootstrapping, each VM of the VMSS download a `repository<https://github.com/nergalex/consul-bootstrap>`_ (git clone) and execute scripts in order to:
+1. install Consul client
+2. onboard Consul client and attached it to Consul cluster
+3. configure Application Services and associated monitoring
+
+Use Case
 ==================================================
 
-:kbd:`ToDo`
-
-Create and launch a workflow template ``wf-create-app_inbound_nginx_controller_nap`` that includes those Job templates in this order:
-
-=============================================================   =============================================       =============================================   =============================================   =============================================   =============================================   =============================================
-Job template                                                    objective                                           playbook                                        activity                                        inventory                                       limit                                           credential
-=============================================================   =============================================       =============================================   =============================================   =============================================   =============================================   =============================================
-``poc-nginx_controller-login``                                  GET authentication token                            ``playbooks/poc-nginx_controller.yaml``         ``login``                                       ``localhost``                                   ``localhost``
-``poc-nginx_controller-create_environment``                     Create an environment                               ``playbooks/poc-nginx_controller.yaml``         ``create_environment``                          ``localhost``                                   ``localhost``
-``poc-azure_get-vmss-facts-credential_set``                     Get info of NGINX VMSS                              ``playbooks/poc-azure.yaml``                    ``get-vmss-facts``                              ``my_project``                                  ``localhost``                                   ``my_azure_credential``
-``poc-nginx_controller-create_gw_app_component_vmss_north``     Create App on North GW / WAF                        ``playbooks/poc-nginx_controller.yaml``         ``create_gw_app_component_vmss_north``          `localhost``                                    ``localhost``
-``wf-nginx_managed-nap_update_waf_policy``                      Apply WAF policies                                  ``workflow`` see use case (C)
-=============================================================   =============================================       =============================================   =============================================   =============================================   =============================================   =============================================
+A) NGINX App Protect + Consul
+#############################
+Follow the guide `Deploy an Application<https://github.com/nergalex/f5-autoscale-azure#deploy-an-application>`_ using specifically:
 
 ==============================================  =============================================   ================================================================================================================================================================================================================
 Extra variable                                  Description                                     Example
 ==============================================  =============================================   ================================================================================================================================================================================================================
-``extra_project_name``                          Project name                                    ``CloudBuilderf5``
-``extra_vmss_name``                             NGINX VMSS name                                 ``myWAFcluster``
-``extra_platform_name``                         Consul DataCenter name                          ``Inbound``
-``extra_app_protect_monitor_ip``                Remote syslog server IP (Kibana, SIEM...)       ``10.0.0.20``
-``extra_app_protect_monitor_port``              Remote syslog server port (Kibana, SIEM...)     ``5144``
-``extra_nap_repo``                              WAF policy repo managed by SecOps               ``https://github.com/nergalex/f5-nap-policies.git``
-``extra_consul_path_source_of_truth``           Consul key path                                 ``poc_f5/inbound/nap``
-``extra_consul_path_lookup``                    Consul key | server names to protect            ``server_names``
-``extra_consul_agent_ip``                       Consul server IP                                ``10.100.0.60``
-``extra_consul_agent_port``                     Consul server port                              ``8500``
-``extra_consul_agent_scheme``                   Consul server scheme                            ``http``
-``extra_consul_datacenter``                     Consul datacenter                               ``Inbound``
 ``extra_app``                                   App specification                               see below
-``extra_nginx_controller_ip``                                                                   ``10.0.0.38``
-``extra_nginx_controller_password``                                                             ``Cha4ngMe!``
-``extra_nginx_controller_username``                                                             ``admin@acme.com``
+``extra_app_backend``                           VM extension for VMSS App                       ``arcadia_consul_1nic_bootstrapping.jinja2``
 ==============================================  =============================================   ================================================================================================================================================================================================================
-
-``extra_app`` structure, also stored as is in Consul:
 
 .. code:: yaml
 
@@ -245,14 +230,10 @@ Extra variable                                  Description                     
         - name: north
           type: adc
           uri: /
-          workloads:
-            - 'http://10.12.1.4:81'
-      domain: f5app.dev
-      environment: PROD
-      name: webmap
-      tls:
-        crt: "-----BEGIN CERTIFICATE-----\r\n...\r\n...\r\n-----END CERTIFICATE-----"
-        key: "-----BEGIN RSA PRIVATE KEY-----\r\n...-----END RSA PRIVATE KEY-----"
+          template: component_adc_consul.json
+          service_disovery: arcadia-all-in-one
+
+
 
 
 B) BIG-IP + Consul

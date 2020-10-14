@@ -1,0 +1,33 @@
+---
+#https://learn.hashicorp.com/tutorials/consul/tls-encryption-secure
+- name: Initialize the built-in CA
+  command: "consul tls ca create"
+  args:
+    chdir: /opt/consul/
+  register: output
+
+- debug:
+    var: output['stdout']
+
+- name: GET ssl private key
+  slurp:
+    src: /opt/consul/consul-agent-ca-key.pem
+  register: var_key_b64
+
+- debug:
+    var: var_key_b64["content"] | b64decode
+
+- name: GET ssl ca crt
+  slurp:
+    src: "/opt/consul/consul-agent-ca.pem"
+  register: var_ca_b64
+
+- debug:
+    var: var_ca_b64["content"] | b64decode
+
+- name: "Artifact for Tower Workflows"
+  set_stats:
+    data:
+      stats_ca_key:  '{{ var_key_b64["content"] | b64decode }}'
+      stats_ca_crt:  '{{ var_ca_b64["content"] | b64decode }}'
+...
