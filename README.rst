@@ -254,7 +254,7 @@ How does it work?
 
 Deploy configuration
 *********************
-Follow the guide `Deploy an Application<https://github.com/nergalex/f5-autoscale-azure#deploy-an-application>`_ using specifically:
+Follow the guide `Deploy an Application <https://github.com/nergalex/f5-autoscale-azure#deploy-an-application>`_ using specifically:
 
 ==============================================  =============================================   ================================================================================================================================================================================================================
 Extra variable                                  Description                                     Example
