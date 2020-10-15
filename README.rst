@@ -20,10 +20,12 @@ Architecture
 ###############
 NGINX App Protect + Consul
 *********************
+
 .. figure:: _figure/Architecture_Consul_NGINX.png
 
 BIG-IP + Consul
 *********************
+
 .. figure:: _figure/Architecture_Consul_BIG-IP.png
 
 Ecosystem
@@ -208,14 +210,21 @@ During bootstrapping, each VM of the VMSS download a `repository <https://github
 
 - install Consul client
 - onboard Consul client and attached it to Consul cluster
-- configure Application Services and associated monitoring
+- configure Application Services to register and associated monitoring
 
 Use Case
 ==================================================
 
 A) NGINX App Protect + Consul
 #############################
-Follow the guide `Deploy an Application<https://github.com/nergalex/f5-autoscale-azure#deploy-an-application>`_ using specifically:
+
+How does it work?
+*********************
+`Read this article <https://learn.hashicorp.com/tutorials/consul/load-balancing-f5?in=consul/integrations>`_
+
+Deploy configuration
+*********************
+Follow the guide `Deploy an Application <https://github.com/nergalex/f5-autoscale-azure#deploy-an-application>`_ using specifically:
 
 ==============================================  =============================================   ================================================================================================================================================================================================================
 Extra variable                                  Description                                     Example
@@ -234,14 +243,43 @@ Extra variable                                  Description                     
           template: component_adc_consul.json
           service_disovery: arcadia-all-in-one
 
-
-
+View active upstream
+*********************
+Access GUI of NGINX+ App Protect instance in order to view active upstream IPs: ``http://<management_ip>:49151/dashboard.html``
 
 B) BIG-IP + Consul
 ==================================================
 
-:kbd:`ToDo`
+How does it work?
+*********************
+`Read this article <https://learn.hashicorp.com/tutorials/consul/load-balancing-nginx-plus?in=consul/integrations>`_
 
+Deploy configuration
+*********************
+Follow the guide `Deploy an Application<https://github.com/nergalex/f5-autoscale-azure#deploy-an-application>`_ using specifically:
+
+==============================================  =============================================   ================================================================================================================================================================================================================
+Extra variable                                  Description                                     Example
+==============================================  =============================================   ================================================================================================================================================================================================================
+``extra_app``                                   App specification                               see below
+``extra_app_backend``                           VM extension for VMSS App                       ``arcadia_consul_1nic_bootstrapping.jinja2``
+==============================================  =============================================   ================================================================================================================================================================================================================
+
+.. code:: yaml
+
+    extra_app:
+      components:
+        - name: north
+          type: adc
+          uri: /
+          template: component_adc.json
+          workloads:
+            - 'http://192.168.0.3'
+        - name: south
+          type: adc
+          uri: /
+          template: component_adc_consul.json
+          service_discovery: arcadia-all-in-one
 
 
 
