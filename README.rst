@@ -8,7 +8,7 @@ Use Case
 ###############
 - **Dynamism** -- Discover workloads IP address and port where the service is up and running in acceptable conditions
 - **Role Base Access Control** -- Delegate Monitoring configuration to DevOps
-- **Source of Truth** -- Centralize application state in an Out Of Band registry
+- **Source of Truth** -- Centralize application monitoring (and their state) in an Out Of Band registry
 
 Benefit
 ###############
