@@ -44,7 +44,7 @@ NGINX App Protect + Consul
 
 .. raw:: html
 
-    <a href="http://www.youtube.com/watch?v=wqIGWfW5Dmo"><img src="http://img.youtube.com/vi/wqIGWfW5Dmo/0.jpg" width="600" height="400" title="Automate an Application deployment" alt="Automate an Application deployment"></a>
+    <a href="http://www.youtube.com/watch?v=isHuVD1fI6U"><img src="http://img.youtube.com/vi/isHuVD1fI6U/0.jpg" width="600" height="400" title="Service Discovery NAP + Consul" alt="Service Discovery NAP + Consul"></a>
 
 BIG-IP + Consul
 *********************
