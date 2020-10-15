@@ -50,7 +50,7 @@ BIG-IP + Consul
 
 .. raw:: html
 
-    <a href="http://www.youtube.com/watch?v=qCem7aBtdfY"><img src="http://img.youtube.com/vi/qCem7aBtdfY/0.jpg" width="600" height="400" title="Service Discovery BIG-IP + Consul" alt="Service Discovery BIG-IP + Consul"></a>
+    <a href="http://www.youtube.com/watch?v=FWBo9_t3PoY"><img src="http://img.youtube.com/vi/FWBo9_t3PoY/0.jpg" width="600" height="400" title="Service Discovery BIG-IP + Consul" alt="Service Discovery BIG-IP + Consul"></a>
 
 Pre-requisites
 ==============
