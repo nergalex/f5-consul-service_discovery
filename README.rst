@@ -215,6 +215,41 @@ During bootstrapping, each VM of the VMSS download a `repository <https://github
 Use Case
 ==================================================
 
+A) NGINX App Protect + Consul
+#############################
+How does it work?
+*********************
+`Read this article <https://learn.hashicorp.com/tutorials/consul/load-balancing-f5?in=consul/integrations>`_
+
+Deploy configuration
+*********************
+Follow the guide `Deploy an Application <https://github.com/nergalex/f5-autoscale-azure#deploy-an-application>`_ using specifically:
+
+==============================================  =============================================   ================================================================================================================================================================================================================
+Extra variable                                  Description                                     Example
+==============================================  =============================================   ================================================================================================================================================================================================================
+``extra_app``                                   App specification                               see below
+``extra_app_backend``                           VM extension for VMSS App                       ``arcadia_consul_1nic_bootstrapping.jinja2``
+==============================================  =============================================   ================================================================================================================================================================================================================
+
+.. code:: yaml
+
+    extra_app:
+      components:
+        - name: north
+          type: adc
+          uri: /
+          template: component_adc_consul.json
+          service_disovery: arcadia-all-in-one
+
+View active upstream
+*********************
+Access GUI of NGINX+ App Protect instance in order to view active upstream IPs: ``http://<management_ip>:49151/dashboard.html``
+
+
+
+
+
 
 
 
