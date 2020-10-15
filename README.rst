@@ -40,7 +40,6 @@ Demo
 ###############
 NGINX App Protect + Consul
 **************************
-:kbd:`ToDo`
 
 .. raw:: html
 
@@ -48,12 +47,10 @@ NGINX App Protect + Consul
 
 BIG-IP + Consul
 *********************
-:kbd:`ToDo`
 
 .. raw:: html
 
-    <a href="http://www.youtube.com/watch?v=wqIGWfW5Dmo"><img src="http://img.youtube.com/vi/wqIGWfW5Dmo/0.jpg" width="600" height="400" title="Automate an Application deployment" alt="Automate an Application deployment"></a>
-
+    <a href="http://www.youtube.com/watch?v=qCem7aBtdfY"><img src="http://img.youtube.com/vi/qCem7aBtdfY/0.jpg" width="600" height="400" title="Service Discovery BIG-IP + Consul" alt="Service Discovery BIG-IP + Consul"></a>
 
 Pre-requisites
 ==============
