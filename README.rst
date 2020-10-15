@@ -246,7 +246,10 @@ View active upstream
 *********************
 Access GUI of NGINX+ App Protect instance in order to view active upstream IPs: ``http://<management_ip>:49151/dashboard.html``
 
-
+B) BIG-IP + Consul
+==================================================
+How does it work?
+*********************
 
 Deploy configuration
 *********************
